@@ -1,6 +1,7 @@
 import network
 import config
 import time
+import json
 
 ssid=config.ssid
 password=config.password
@@ -35,8 +36,12 @@ finally:
     time.sleep(5)
     """
     
-    rest=urequests.request("GET","http://c9d7-186-31-146-44.ngrok-free.app/todo/api/v1.0/tasks")
-    print(rest.text)
+    rest=urequests.request("GET","https://pokeapi.co/api/v2/pokemon/ditto")
+    #print(rest.text)
+    obj=json.loads(rest.text)
+    print(obj['abilities'])
+    print(obj['abilities'][0])
+    
     pass
     
 
